@@ -1,0 +1,18 @@
+{
+  "name": "wechat-article-manager",
+  "version": "1.0.0",
+  "description": "微信公众号文章管理工具",
+  "main": "publish.js",
+  "type": "module",
+  "scripts": {
+    "publish": "node publish.js"
+  },
+  "keywords": [
+    "wechat",
+    "wechat-article",
+    "wechat-official-articles",
+    "wechat-mp"
+  ],
+  "author": "",
+  "license": "MIT"
+}
