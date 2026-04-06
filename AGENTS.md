@@ -33,7 +33,19 @@ Read these in order:
 ## Writing Guide
 
 - `WECHAT_WRITING_GUIDE.md` - WeChat Markdown best practices
-- **禁止本地文件链接**：不要使用 `[text](../path.md)`，改用 HTTP/HTTPS URL
-  - 示例：`[LLM 性能对比表](https://github.com/JaysonAlbert/llm-profile/wiki/Index.md)`
-  - 不要使用：`[LLM 性能对比表](../llm-profile/wiki/Index.md)`
-- 外部资源链接统一使用 GitHub wiki 或 raw 内容链接
+- **Frontmatter 必填项**：
+  - `title`：文章标题
+  - `date`：发布日期，格式 `YYYY-MM-DD`
+  - `tags`：标签数组
+  - `cover`：封面图 URL（必须添加，可以是本地路径）
+  - `description`：文章描述
+- **禁止本地文件链接**（文本引用）：
+  - ❌ 不要使用：`[LLM 性能对比表](../llm-profile/wiki/Index.md)`
+  - ✅ 使用 HTTP/HTTPS：`[LLM 性能对比表](https://github.com/JaysonAlbert/llm-profile/wiki/Index.md)`
+- **封面图可以本地路径**：
+  - ✅ 允许：`cover: ./articles/img.jpg` 或 `cover: articles/RTX 5090.png`
+- **正文中添加图片**：
+  - ✅ 允许：`![图片描述](articles/img.jpg)`
+  - 示例：`![RTX 5090](articles/RTX 5090 powering the coder's craft.png)`
+- 外部资源链接（Wiki、文档）统一使用 GitHub wiki 或 raw 内容链接
+- 图片资源（封面图、正文图片）可以使用本地路径

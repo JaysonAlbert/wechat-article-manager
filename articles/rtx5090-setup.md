@@ -2,11 +2,15 @@
 title: 买了 RTX 5090 之后可以干什么
 date: 2026-04-06
 tags: RTX5090, 本地部署 LLM, OpenCode, Ollama
+cover: 5090.png
+description: 买了 RTX 5090 32GB 后，如何用本地 LLM 构建 AI 编程工作流？详解 Qwen3.5:35B + OpenCode 配置，性能测试 + 实践指南。
 ---
 
 # 买了 RTX 5090 之后可以干什么
 
-拿到 **RTX 5090 32GB（不带D）** 第一反应是什么？打游戏当然可以，但我选择了另一条路——**本地部署大语言模型，构建 AI 编程工作**。
+![RTX 5090 本地部署 LLM](5090.png)
+
+拿到 **RTX 5090 32GB（不带 D）** 第一反应是什么？打游戏当然可以，但我选择了另一条路——**本地部署大语言模型，构建 AI 编程工作**。
 
 ## 为什么选择本地 LLM
 
@@ -28,8 +32,8 @@ winget install Ollama
 # 2. 拉取模型
 ollama pull qwen3.5:35b
 
-# 3. 验证安装
-ollama run qwen3.5:25b "你好，请介绍一下你自己"
+# 3. 验证安装（注意修正：qwen3.5:35b）
+ollama run qwen3.5:35b "你好，请介绍一下你自己"
 ```
 
 ### 模型选择：性能测试
