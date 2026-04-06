@@ -26,7 +26,7 @@ tags: RTX5090, 本地部署 LLM, OpenCode, Ollama
 winget install Ollama
 
 # 2. 拉取模型
-ollama pull qwen3.5:25b
+ollama pull qwen3.5:35b
 
 # 3. 验证安装
 ollama run qwen3.5:25b "你好，请介绍一下你自己"
