@@ -104,24 +104,39 @@ ollama run qwen3.5:35b "你好，请介绍一下你自己"
 
 ## 配置指南
 
-### 设置上下文长度（关键！）
+### 设置上下文长度（推荐方式）
 
-```bash
-# 启动 OpenCode 时指定上下文长度
-opencode --context-length 65536
+**推荐通过配置文件设置**，创建 `opencode.json` 或在现有配置中添加：
+
+```json
+{
+  "provider": {
+    "ollama": {
+      "models": {
+        "qwen3.5:35b": {
+          "_launch": true,
+          "name": "qwen3.5:35b",
+          "limit": {
+            "context": 131072,
+            "output": 16384
+          }
+        }
+      },
+      "name": "Ollama"
+    }
+  }
+}
 ```
 
-**为什么需要手动设置？**
-- 默认值通常不会显示进度
-- 设置后，右上角会显示：`Context: 45%`
-- 实时了解 token 使用情况
+**配置说明：**
+- `limit.context`: 上下文长度（默认 131072=128k）
+- `limit.output`: 输出 token 数（必填！）
+- 设置后右上角 Context 会显示当前上下文百分比
 
-### 最佳实践配置
-
-```bash
-ollama run qwen3.5:35b
-opencode --model qwen3.5:35b --context-length 65536
-```
+**为什么推荐配置文件方式？**
+- ✅ 持久化配置
+- ✅ 自动显示进度
+- ✅ 避免每次都手动输入参数
 
 ## 性能数据参考
 
@@ -164,12 +179,13 @@ opencode context-project --review
 
 1. ✅ **本地 LLM** (qwen3.5:35B) - 速度、效果、上下文的完美平衡
 2. ✅ **透明工具** (OpenCode) - 不再为黑盒焦虑
-3. ✅ **完全控制** - 上下文长度、模型选择、参数调整
+3. ✅ **完全控制** - 上下文长度、模型选择、输出限制
 
 **建议配置：**
 - 模型：`qwen3.5:35B` via Ollama
-- 工具：OpenCode with 64k context
-- 显示：确保 Context 百分比显示，实时监控
+- 上下文：`limit.context: 131072` (128k)
+- 输出限制：`limit.output: 16384` (必填)
+- 推荐方式：通过配置文件设置，自动显示 Context 百分比
 
 ---
 
